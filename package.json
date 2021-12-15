@@ -1,12 +1,12 @@
 {
   "name": "willian-node-demo",
   "bin": {
-    "nd": "cli.js"
+    "w-cli": "cli.js"
   },
   "files": [
     "*.js"
   ],
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
