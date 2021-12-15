@@ -17,9 +17,14 @@ program
 	.description('clear all tasks')
 	.action((source, destination) => {
 		console.log('source, destination', source, destination.args);
+		api.clear();
 	});
-program.parse(process.argv);
 
-const options = program.opts();
-if (options.debug) console.log(options);
-console.log('pizza details:', options);
+if (process.argv.length === 2) {
+	// 说明没有传参数 直接运行node cli.js
+	api.showAll();
+}
+// program.parse(process.argv);
+// const options = program.opts();
+// if (options.debug) console.log(options);
+// console.log('pizza details:', options, process.argv);
