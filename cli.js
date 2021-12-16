@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 const { Command } = require('commander');
 const program = new Command();
-program.version('0.0.1');
 const api = require('./index');
+const pkg = require('./package');
 program
+	.version(pkg.version)
 	.option('-x, --xxx', 'this is x');
 program
 	.command('add')
@@ -24,8 +25,9 @@ program
 if (process.argv.length === 2) {
 	// 说明没有传参数 直接运行node cli.js
 	api.showAll();
+	return;
 }
-// program.parse(process.argv);
-// const options = program.opts();
-// if (options.debug) console.log(options);
-// console.log('pizza details:', options, process.argv);
+program.parse(process.argv);
+const options = program.opts();
+if (options.debug) console.log(options);
+console.log('pizza details:', options, process.argv);
